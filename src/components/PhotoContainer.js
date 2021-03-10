@@ -17,17 +17,21 @@ const PhotoContainer = (props) => {
         );
     } else {
        photos = <NotFound />; 
-    }
-
+    }    
     
-    
-    return(
-        <div className="photo-container">
-        <h2>Images Of: { props.title }</h2>
-          <ul>
-            { photos }
-          </ul>
-        </div>        
+    return(        
+            ( results.length !== 0 ) 
+            ? <div className="photo-container">
+                <h2>Images Of: { props.title }</h2>
+                <ul>
+                  { photos }
+                </ul>
+              </div>
+            : <div className="photo-container">
+                <ul>
+                  { photos }
+                </ul>
+              </div>               
     );
 }
 
