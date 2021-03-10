@@ -91,9 +91,7 @@ class App extends Component {
   }
 
 
-  render() {
-    
-    console.log(this.state.photos);
+  render() {    
     return (
       <BrowserRouter>
         <div className="App">
