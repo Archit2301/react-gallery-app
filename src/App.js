@@ -73,13 +73,14 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <div className="container">
-            <SearchForm onSearch={ this.performSearch } />
+            <SearchForm onSearch={this.performSearch} />
             <Nav />  
             <Switch>
                 <Route exact path="/" render={() => <Redirect to="/music" /> } />   
                 <Route path="/music" render={() => <PhotoContainer title="Music" data={this.state.musicPhotos} /> } />
                 <Route path="/sports" render={() => <PhotoContainer title="Sports" data={this.state.sportsPhotos} /> } />
                 <Route path="/health" render={() => <PhotoContainer title="Health" data={this.state.healthPhotos} /> } />
+                <Route path="/search/:name" render={() => <PhotoContainer data={this.state.photos}/> } />
             </Switch>           
           </div>
         </div>

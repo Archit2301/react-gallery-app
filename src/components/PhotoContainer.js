@@ -1,9 +1,10 @@
 import React from 'react';
 import Photo from './Photo';
 
-const PhotoContainer = props => {
+const PhotoContainer = (props) => {
 
     const results = props.data;
+    // let name = match.params.name;
    
     let photos = results.map(photo => 
         <Photo 
