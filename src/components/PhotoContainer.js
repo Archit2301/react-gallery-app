@@ -4,8 +4,7 @@ import Photo from './Photo';
 const PhotoContainer = (props) => {
 
     const results = props.data;
-    // let name = match.params.name;
-   
+    
     let photos = results.map(photo => 
         <Photo 
             key={photo.id}
@@ -16,7 +15,7 @@ const PhotoContainer = (props) => {
     
     return(
         <div className="photo-container">
-        <h2>Results</h2>
+        <h2>{ props.title }</h2>
           <ul>
             { photos }
           </ul>

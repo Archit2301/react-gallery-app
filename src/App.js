@@ -16,6 +16,7 @@ import PhotoContainer from './components/PhotoContainer';
 class App extends Component {
 
   state = {
+    querySearch: '',
     photos: [],
     musicPhotos: [],
     sportsPhotos: [],
@@ -26,7 +27,8 @@ class App extends Component {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
-          photos: response.data.photos.photo 
+          photos: response.data.photos.photo, 
+          querySearch: query
       });
     })
       .catch(error => {
@@ -80,7 +82,7 @@ class App extends Component {
                 <Route path="/music" render={() => <PhotoContainer title="Music" data={this.state.musicPhotos} /> } />
                 <Route path="/sports" render={() => <PhotoContainer title="Sports" data={this.state.sportsPhotos} /> } />
                 <Route path="/health" render={() => <PhotoContainer title="Health" data={this.state.healthPhotos} /> } />
-                <Route path="/search/:name" render={() => <PhotoContainer data={this.state.photos}/> } />
+                <Route path="/:name" render={() => <PhotoContainer title={this.state.querySearch} data={this.state.photos}/> } />
             </Switch>           
           </div>
         </div>
