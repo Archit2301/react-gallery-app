@@ -12,6 +12,7 @@ import apiKey from './config/config';
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import PhotoContainer from './components/PhotoContainer';
+import FourOFour from './components/FourOFour';
 
 class App extends Component {
 
@@ -82,7 +83,8 @@ class App extends Component {
                 <Route path="/music" render={() => <PhotoContainer title="Music" data={this.state.musicPhotos} /> } />
                 <Route path="/sports" render={() => <PhotoContainer title="Sports" data={this.state.sportsPhotos} /> } />
                 <Route path="/health" render={() => <PhotoContainer title="Health" data={this.state.healthPhotos} /> } />
-                <Route path="/:name" render={() => <PhotoContainer title={this.state.querySearch} data={this.state.photos}/> } />
+                <Route exact path="/:name" render={() => <PhotoContainer title={this.state.querySearch} data={this.state.photos}/> } />
+                <Route component={FourOFour} />
             </Switch>           
           </div>
         </div>
