@@ -1,3 +1,5 @@
+// This component will be rendered when there are no results to be shown
+
 import React from 'react';
 
 const NotFound = () => {

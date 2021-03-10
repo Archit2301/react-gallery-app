@@ -1,3 +1,5 @@
+// Component for error message if page cannot be found due to bad URL
+
 import React from 'react';
 
 const FourOFour = () => {

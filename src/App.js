@@ -1,3 +1,8 @@
+/*****************************************************
+TechDegree Project 7 - React Gallery App
+*****************************************************/
+
+// Importing all dependencies
 import {React, Component} from 'react';
 import {
   BrowserRouter,
@@ -9,11 +14,13 @@ import './css/App.css';
 import axios from 'axios';
 import apiKey from './config/config';
 
+// Importing all components
 import SearchForm from './components/SearchForm';
 import Nav from './components/Nav';
 import PhotoContainer from './components/PhotoContainer';
 import FourOFour from './components/FourOFour';
 
+// Root component from where props will be passed down to the children 
 class App extends Component {
 
   state = {
@@ -25,10 +32,12 @@ class App extends Component {
     loading: true
   };  
 
+  // React's lifecycle method defined
   componentDidMount() {
 
     this.performSearch();
     
+    // Fetching the data using flickr API
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=music&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState ({
@@ -63,6 +72,10 @@ class App extends Component {
       });
   }
 
+  /**
+  * function defined for photo search
+  * @param (string) query - this will hold the input field value requested
+  */ 
   performSearch = (query="music") => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
@@ -89,7 +102,7 @@ class App extends Component {
             <Nav />  
              {
                (this.state.loading)
-               ? <p>Loading...</p>
+               ? <p>Loading...</p> 
                : <Switch>
                     <Route exact path="/" render={() => <Redirect to="/music" /> } />   
                     <Route path="/music" render={() => <PhotoContainer title="Music" data={this.state.musicPhotos} /> } />
@@ -104,7 +117,6 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-
 }  
 
 export default App;

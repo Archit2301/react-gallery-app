@@ -7,6 +7,7 @@ const PhotoContainer = (props) => {
     const results = props.data;
     let photos;
 
+    // Conditional statement to check if the results were returned upon request
     if ( results.length !== 0 ) {
         photos = results.map(photo => 
             <Photo 

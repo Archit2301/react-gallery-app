@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router";
+import { withRouter } from "react-router"; // To bring the compnent within the scope of react router 
 
 class SearchForm extends Component {
 
@@ -7,8 +7,8 @@ class SearchForm extends Component {
     e.preventDefault();    
     this.props.onSearch(this.name.value);    
     let path = `/${this.name.value}`;
-    this.props.history.push(path);
-    e.currentTarget.reset();
+    this.props.history.push(path);  // Clicking next and back buttons will display th results stored in history stack
+    e.currentTarget.reset();  // Clears the input field upon form submission
   }
 
   render() {
