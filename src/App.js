@@ -1,7 +1,3 @@
-/*****************************************************
-TechDegree Project 7 - React Gallery App
-*****************************************************/
-
 // Importing all dependencies
 import {React, Component} from 'react';
 import {
